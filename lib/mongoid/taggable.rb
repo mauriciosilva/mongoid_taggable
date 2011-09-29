@@ -42,6 +42,10 @@ module Mongoid::Taggable
       self.any_in(:tags_array => [tag])
     end
 
+		def not_tagged_with(tag)
+			self.not_in(:tags_array => [tag])
+		end
+
     def tagged_with_all(*tags)
       self.all_in(:tags_array => tags.flatten)
     end
